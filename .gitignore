@@ -5,7 +5,7 @@ __pycache__/
 *$py.class
 
 # local models dir
-django_cookie/Aspect-Based-Sentiment-Analysis-master/models
+django_cookie/sentiment_analysis/models
 
 # C extensions
 *.so

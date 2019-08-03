@@ -1,4 +1,4 @@
-from imports import *
+from django_cookie.sentiment_analysis.imports import *
 
 def returnDatasetInfo(df):
 
