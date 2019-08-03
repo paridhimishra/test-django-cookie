@@ -35,6 +35,7 @@ django-storages==1.7.1
 djangorestframework==3.10.2
 docutils==0.14
 entrypoints==0.3
+ez-setup==0.9
 factory-boy==2.12.0
 Faker==2.0.0
 flake8==3.7.8
@@ -123,4 +124,3 @@ Werkzeug==0.14.1
 whichcraft==0.6.0
 wrapt==1.11.2
 zipp==0.5.2
-

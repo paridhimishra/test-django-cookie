@@ -7,6 +7,7 @@ import nltk
 nltk.download('stopwords')
 import pickle
 import boto3
+import botocore
 from  config.settings import production
 
 def printOutput(df, Y, outFile):
@@ -32,10 +33,20 @@ def run():
     file = 'finalized_model.pickle'
 
     s3 = boto3.client('s3', aws_access_key_id=production.AWS_ACCESS_KEY_ID, aws_secret_access_key=production.AWS_SECRET_ACCESS_KEY)
-    s3.download_file(production.AWS_STORAGE_BUCKET_NAME, file, file)
+    #s3.download_file(production.AWS_STORAGE_BUCKET_NAME, file, file)
 
+    #s3 = boto3.resource('s3')
+
+    # try:
+    #     s3.download_file(production.AWS_STORAGE_BUCKET_NAME, file, file)
+    # except botocore.exceptions.ClientError as e:
+    #     if e.response['Error']['Code'] == "404":
+    #         print("The object does not exist.")
+    #     else:
+    #         raise
     #
-    model = pickle.load(open(file, 'rb'))
+    # #
+    # model = pickle.load(open(file, 'rb'))
     print('model loaded into file')
 
 
