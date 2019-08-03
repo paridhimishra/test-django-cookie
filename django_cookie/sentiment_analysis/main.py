@@ -29,27 +29,15 @@ def run():
     # Your output file name
     outFile = "output.txt"
 
-    df_comp_out['class'] = np.ones(len(df_comp_out))
+    file = 'finalized_model.pickle'
 
-    df = pd.concat([df_comp_in, df_comp_out])
-    df = preprocessData(df)
+    s3 = boto3.client('s3', aws_access_key_id=production.AWS_ACCESS_KEY_ID, aws_secret_access_key=production.AWS_SECRET_ACCESS_KEY)
+    s3.download_file(production.AWS_STORAGE_BUCKET_NAME, file, file)
 
-    df, X, Y = aspectAnalysis(df)
-    X_train = X[0:len(df_comp_in)]
-    Y_train = Y[0:len(df_comp_in)]
-    X_test = X[len(df_comp_in):]
-
-    filename = 'django_cookie/sentiment_analysis/models/finalized_model.pickle'
-
-    # Classifier
-    # model = trainBestClassifier(X_train, Y_train)
-    # pickle.dump(model, open(filename, 'wb'))
-    # print('model dumped into file')
     #
     model = pickle.load(open(filename, 'rb'))
     print('model loaded into file')
-    Y_test = model.predict(X_test)
-    printOutput(df_comp_out, Y_test, outFile)
+
 
 if __name__ == "__main__":
     # Read two train datasets
