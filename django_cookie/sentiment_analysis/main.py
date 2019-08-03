@@ -6,6 +6,8 @@ from django_cookie.sentiment_analysis.models import *
 import nltk
 nltk.download('stopwords')
 import pickle
+import boto3
+from  config.settings import production
 
 def printOutput(df, Y, outFile):
     results = []
@@ -67,7 +69,14 @@ if __name__ == "__main__":
     Y_train = Y[0:len(df_comp_in)]
     X_test = X[len(df_comp_in):]
 
-    filename = 'models/finalized_model.pickle'
+    # local file storage
+    # filename = 'models/finalized_model.pickle'
+
+    # aws file storage
+    s3_resource = boto3.resource('s3')
+    first_bucket = s3_resource.Bucket(name=production.AWS_STORAGE_BUCKET_NAME)
+    first_object = s3_resource.Object(
+        bucket_name=production.AWS_STORAGE_BUCKET_NAME, key='finalized_model.pickle')
 
     # Classifier
     # model = trainBestClassifier(X_train, Y_train)
