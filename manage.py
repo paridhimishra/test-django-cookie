@@ -27,7 +27,7 @@ if __name__ == "__main__":
     # django_cookie directory.
     current_path = os.path.dirname(os.path.abspath(__file__))
     sys.path.append(os.path.join(current_path, "django_cookie"))
-
-    run()
-    execute_from_command_line(sys.argv)
+    print('hey---------------------')
+    #run()
+    #execute_from_command_line(sys.argv)
 
