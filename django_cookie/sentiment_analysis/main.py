@@ -35,7 +35,7 @@ def run():
     s3.download_file(production.AWS_STORAGE_BUCKET_NAME, file, file)
 
     #
-    model = pickle.load(open(filename, 'rb'))
+    model = pickle.load(open(file, 'rb'))
     print('model loaded into file')
 
 
