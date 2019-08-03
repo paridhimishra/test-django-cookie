@@ -73,10 +73,14 @@ if __name__ == "__main__":
     # filename = 'models/finalized_model.pickle'
 
     # aws file storage
-    s3_resource = boto3.resource('s3')
-    first_bucket = s3_resource.Bucket(name=production.AWS_STORAGE_BUCKET_NAME)
-    first_object = s3_resource.Object(
-        bucket_name=production.AWS_STORAGE_BUCKET_NAME, key='finalized_model.pickle')
+    # s3_resource = boto3.resource('s3')
+    # first_bucket = s3_resource.Bucket(name=production.AWS_STORAGE_BUCKET_NAME)
+    # first_object = s3_resource.Object(
+    #     bucket_name=production.AWS_STORAGE_BUCKET_NAME, key='finalized_model.pickle')
+    file = 'finalized_model.pickle'
+
+    s3 = boto3.client('s3', aws_access_key_id=production.AWS_ACCESS_KEY_ID, aws_secret_access_key=production.AWS_SECRET_ACCESS_KEY)
+    s3.download_file(production.AWS_STORAGE_BUCKET_NAME, file, file)
 
     # Classifier
     # model = trainBestClassifier(X_train, Y_train)
