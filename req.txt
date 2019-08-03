@@ -123,4 +123,4 @@ Werkzeug==0.14.1
 whichcraft==0.6.0
 wrapt==1.11.2
 zipp==0.5.2
-nltk.data.path.append('punkt')
+
