@@ -11,6 +11,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, classification_report
 import re
 from nltk.corpus import stopwords
+from nltk.corpus import state_union
 from nltk.tokenize import word_tokenize
 from sklearn.svm import SVC
 from textblob import TextBlob
