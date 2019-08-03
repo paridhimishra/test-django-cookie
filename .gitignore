@@ -4,6 +4,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# local models dir
+django_cookie/models
+
 # C extensions
 *.so
 
