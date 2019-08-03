@@ -1,7 +1,7 @@
 from django_cookie.sentiment_analysis.imports import *
 from django_cookie.sentiment_analysis.preprocessing import *
 from django_cookie.sentiment_analysis.aspect import *
-from django_cookie.sentiment_analysis.models import *
+#from django_cookie.sentiment_analysis.models import *
 
 import nltk
 nltk.download('stopwords')
