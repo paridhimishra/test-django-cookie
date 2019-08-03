@@ -88,6 +88,6 @@ if __name__ == "__main__":
     # print('model dumped into file')
     #
     model = pickle.load(open(filename, 'rb'))
-    print('model loaded into file')
-    Y_test = model.predict(X_test)
-    printOutput(df_comp_out, Y_test, outFile)
+    print('model loaded into file-------------------------------------------')
+    #Y_test = model.predict(X_test)
+    #printOutput(df_comp_out, Y_test, outFile)
